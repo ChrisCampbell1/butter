@@ -2,15 +2,39 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
-  <% if (user?.profile.avatar) { %>
+  <% if (user) { %>
+    <h1>hello, <%= user ? user.profile.name : "friend" %>, let's get cooking!</h1>
+    <% if (user?.profile.avatar) { %>
+      <div>
+        <img
+          src="<%= user.profile.avatar %>"
+          alt="<%= user.profile.name %> avatar"
+        />
+      </div>
+      <p>placeholder for top recipes/cookbook</p>
+    <% } %>
+  <% } else { %>
+    <img src="https://picsum.photos/200/300" alt="butter-logo-placeholder">
+    <h1>Please Sign In</h1>
     <div>
-      <img
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-      />
+      <div 
+        id="g_id_onload"
+        data-client_id="<%= googleClientID %>"
+        data-login_uri="/auth/google"
+        data-auto_prompt="false"
+      ></div>
+      <div 
+        class="g_id_signin right"
+        data-type="standard"
+        data-size="large"
+        data-theme="outline"
+        data-text="sign_in_with"
+        data-shape="rectangular"
+        data-logo_alignment="left"
+      ></div>
     </div>
   <% } %>
+
 </main>
 
 <%- include('./partials/footer') %>
