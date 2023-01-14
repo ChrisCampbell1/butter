@@ -1,0 +1,19 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+<h1><%= title %></h1>
+<form action="/recipes" method="POST">
+  <label for="label-input">Name:</label>
+  <input type="text" name="label" id="label-input" placeholder="Recipe Name">
+  <label for="description-input">Description:</label>
+  <textarea name="description" id="description-input" placeholder="Description"></textarea>
+  <label for="ingredients-input">Ingredients:</label>
+  <textarea name="ingredients" id="ingredients-input" placeholder="separate ingredients with a comma, one per line"></textarea>
+  <label for="instructions-input">Instructions:</label>
+  <textarea name="instructions" id="instructions-input" placeholder="separate instructions with a comma, one per line"></textarea>
+  <button type="submit">Save Recipe</button>
+</form>
+</main>
+
+<%- include('../partials/footer') %>
