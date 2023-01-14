@@ -22,7 +22,7 @@ function create(req, res) {
   req.body.author = req.user.profile._id
   Recipe.create(req.body)
   .then(recipe => {
-    res.redirect('/')
+    res.redirect('/recipes')
   })
   .catch(err => {
     console.log(err)
@@ -71,11 +71,23 @@ function update(req, res) {
   })
 }
 
+function deleteRecipe(req, res) {
+  Recipe.findByIdAndDelete(req.params.id)
+  .then(recipe => {
+    res.redirect('/recipes')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/error')
+  })
+}
+
 export {
   index,
   newRecipe as new,
   create,
   show,
   edit,
-  update
+  update,
+  deleteRecipe as delete
 }
