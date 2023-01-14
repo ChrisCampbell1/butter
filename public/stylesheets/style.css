@@ -40,7 +40,7 @@ nav a {
 main {
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
   background-color: black;
   color: #ffd212;
@@ -53,4 +53,18 @@ main {
 form {
   display: flex;
   flex-direction: column;
+  width: 60%;
+}
+
+.ingredient-input {
+  display: flex;
+  flex-direction: row;
+  margin-top: 25px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+form label {
+  font-weight: bold;
+  margin-top: 25px;
 }

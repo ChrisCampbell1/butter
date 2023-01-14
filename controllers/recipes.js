@@ -7,8 +7,8 @@ function newRecipe (req, res) {
 }
 
 function create(req, res) {
-  req.body.ingredients = req.body.ingredients.split(", ")
-  req.body.instructions = req.body.instructions.split(", ")
+  req.body.ingredients = req.body.ingredients.split(",")
+  req.body.instructions = req.body.instructions.split(",")
   req.body.author = req.user.profile._id
   Recipe.create(req.body)
   .then(recipe => {
