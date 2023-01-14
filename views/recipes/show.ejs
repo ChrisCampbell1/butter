@@ -26,6 +26,54 @@
   </form>
 <% } %>
 
+<h3>Comments</h3>
+<form action="/recipes/<%= recipe._id %>/comments" method="POST">
+  <label for="comment-input">Comment</label>
+  <textarea name="content" id="comment-input"></textarea>
+  <label for="rating-input">Rating</label>
+  <select name="rating" id="rating-input">
+    <option value="5">5</option>
+    <option value="4">4</option>
+    <option value="3">3</option>
+    <option value="2">2</option>
+    <option value="1">1</option>
+  </select>
+  <button type="submit">Add Comment</button>
+</form>
+
+<% if (recipe.comments.length) { %>
+  <h4>Comments</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Comment</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% let total = 0 %> 
+      <% recipe.comments.forEach(function(comment) { %>
+        <% total += comment.rating %> 
+        <tr>
+          <td><%= comment.createdAt.toLocaleDateString() %></td>
+          <td><%= comment.content %></td>
+          <td><%= comment.rating %></td>
+        </tr>
+      <% }) %>
+      <tr>
+        <td colspan="3"></td>
+        <td>
+          <strong>
+            <%= (total / recipe.comments.length).toFixed(1) %> 
+          </strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <% } else { %>
+  <h4>No Comments Yet</h4>
+<% } %>
 
 </main>
 

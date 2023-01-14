@@ -9,6 +9,7 @@ router.get('/new', isLoggedIn, recipesRouter.new)
 router.get('/:id', isLoggedIn, recipesRouter.show)
 router.get('/:id/edit', isLoggedIn, recipesRouter.edit)
 router.post('/', isLoggedIn, recipesRouter.create)
+router.post('/:id/comments', isLoggedIn, recipesRouter.createComment)
 router.put('/:id', isLoggedIn, recipesRouter.update)
 router.delete('/:id', isLoggedIn, recipesRouter.delete)
 

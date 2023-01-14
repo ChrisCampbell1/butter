@@ -83,6 +83,25 @@ function deleteRecipe(req, res) {
   })
 }
 
+function createComment(req, res) {
+  Recipe.findById(req.params.id)
+  .then(recipe => {
+    recipe.comments.push(req.body)
+    recipe.save()
+    .then(() => {
+      res.redirect(`/recipes/${recipe._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/error')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/error')
+  })
+}
+
 export {
   index,
   newRecipe as new,
@@ -90,5 +109,6 @@ export {
   show,
   edit,
   update,
-  deleteRecipe as delete
+  deleteRecipe as delete,
+  createComment
 }

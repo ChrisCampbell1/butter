@@ -1,0 +1,28 @@
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Comment</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% let total = 0 %> 
+    <%= recipe.comments.forEach(comment => { %>
+      <% total += comment.rating %> 
+      <tr>
+        <td><%= review.createdAt.toLocaleDateString()%></td>
+        <td><%= comment.content %></td>
+        <td><%= comment.rating %></td>
+      </tr>
+    <% }) %>
+    <tr>
+      <td colspan="3"></td>
+      <td>
+        <strong>
+          <%= (total / recipe.comments.length).toFixed(1) %> 
+        </strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
