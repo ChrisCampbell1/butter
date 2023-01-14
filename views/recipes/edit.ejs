@@ -3,7 +3,7 @@
 
 <main>
 <h1><%= title %></h1>
-<form action="/recipes" method="POST">
+<form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
   <label for="label-input">Name:</label>
   <input type="text" name="label" id="label-input" placeholder="Recipe Name" value="<%= recipe.label %>">
   <label for="description-input">Description:</label>

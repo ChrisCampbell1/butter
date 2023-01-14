@@ -38,6 +38,10 @@ function show(req, res) {
       recipe
     })
   })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 function edit(req, res) {
@@ -48,6 +52,23 @@ function edit(req, res) {
       recipe
     })
   })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/error')
+  })
+}
+
+function update(req, res) {
+  req.body.ingredients = req.body.ingredients.split(",")
+  req.body.instructions = req.body.instructions.split(",")
+  Recipe.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(recipe => {
+    res.redirect(`/recipes/${recipe._id}`)
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/error')
+  })
 }
 
 export {
@@ -55,5 +76,6 @@ export {
   newRecipe as new,
   create,
   show,
-  edit
+  edit,
+  update
 }
