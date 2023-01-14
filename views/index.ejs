@@ -2,6 +2,7 @@
 <%- include('./partials/nav') %>
 
 <main>
+  <img src="/assets/logo.png" alt="butter logo" width="400px">
   <% if (user) { %>
     <h1>hello, <%= user ? user.profile.name : "friend" %>, let's get cooking!</h1>
     <% if (user?.profile.avatar) { %>
@@ -14,7 +15,7 @@
       <p>placeholder for top recipes/cookbook</p>
     <% } %>
   <% } else { %>
-    <img src="https://picsum.photos/200/300" alt="butter-logo-placeholder">
+    <img src="/assets/logo.png" alt="butter logo">
     <h1>Please Sign In</h1>
     <div>
       <div 

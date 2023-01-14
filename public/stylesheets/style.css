@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  background-color: black;
 }
 
 /* The Universal Selector */
@@ -12,8 +13,8 @@ html {
 }
 
 body {
-  background-color: #1a1a1a;
-  color: #f6f6f6;
+  background-color: black;
+  color: #ffd212;
   /* Use a system font, if none are available use any found sans-sarif font */
   font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
     'Helvetica Neue', sans-serif;
@@ -21,12 +22,19 @@ body {
 }
 
 nav {
-  background-color: #f6f6f6;
-  color: #1a1a1a;
+  background-color: #ffd212;
+  color: black;
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   padding: 10px;
   min-height: 60px;
+}
+
+nav a {
+  color: black;
+  margin: auto;
 }
 
 main {
@@ -34,6 +42,8 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: black;
+  color: #ffd212;
 }
 
 .right {
