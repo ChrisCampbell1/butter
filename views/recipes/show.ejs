@@ -17,12 +17,14 @@
     <li><%= instruction %></li>
   <% }) %>
 </ol>
-<form action="/recipes/<%= recipe._id %>/edit" method="get">
-  <button type="submit">Edit Recipe</button>
-</form>
-<form action="/recipes/<%= recipe._id %>?_method=DELETE" method="post">
-  <button type="submit">Delete Recipe</button>
-</form>
+<% if (recipe.author.equals(user?.profile._id)) { %>
+  <form action="/recipes/<%= recipe._id %>/edit" method="get">
+    <button type="submit">Edit Recipe</button>
+  </form>
+  <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="post">
+    <button type="submit">Delete Recipe</button>
+  </form>
+<% } %>
 
 
 </main>

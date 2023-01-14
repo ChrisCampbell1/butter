@@ -32,6 +32,7 @@ function create(req, res) {
 
 function show(req, res) {
   Recipe.findById(req.params.id)
+  .populate('author')
   .then(recipe => {
     res.render('recipes/show', {
       title: recipe.label,
