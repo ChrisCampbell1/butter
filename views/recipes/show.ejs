@@ -3,6 +3,8 @@
 
 <main>
 <h1><%= title %></h1>
+<h2>Author:</h2>
+<h4><%= recipe.author.name %></h4>
 <h3>Description</h3>
 <p><%= recipe.description %></p>
 <h3>Ingredients</h3>
@@ -47,6 +49,7 @@
     <thead>
       <tr>
         <th>Date</th>
+        <th>Author</th>
         <th>Comment</th>
         <th>Rating</th>
       </tr>
@@ -57,12 +60,13 @@
         <% total += comment.rating %> 
         <tr>
           <td><%= comment.createdAt.toLocaleDateString() %></td>
+          <td><%= comment.commenter %></td>
           <td><%= comment.content %></td>
           <td><%= comment.rating %></td>
         </tr>
       <% }) %>
       <tr>
-        <td colspan="3"></td>
+        <td colspan="4"></td>
         <td>
           <strong>
             <%= (total / recipe.comments.length).toFixed(1) %> 

@@ -84,7 +84,10 @@ function deleteRecipe(req, res) {
 }
 
 function createComment(req, res) {
+  req.body.commenter = req.user.profile._id
+  console.log(req.body)
   Recipe.findById(req.params.id)
+  .populate('author')
   .then(recipe => {
     recipe.comments.push(req.body)
     recipe.save()
