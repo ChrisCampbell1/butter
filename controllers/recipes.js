@@ -48,6 +48,8 @@ function show(req, res) {
 function edit(req, res) {
   Recipe.findById(req.params.id)
   .then(recipe => {
+    recipe.ingredients = recipe.ingredients.join("\r\n")
+    recipe.instructions = recipe.instructions.join("\r\n")
     res.render('recipes/edit', {
       title: "Edit Recipe",
       recipe
