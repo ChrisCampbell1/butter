@@ -3,7 +3,7 @@
 
 <main>
 <h1><%= title %></h1>
-<% if (cookbook.recipes) { %>
+<% if (cookbook.recipes.length) { %>
   <ul>
   <% cookbook.recipes.forEach(recipe => { %>
     <li><a href="/recipes/<%= recipe._id %>"><%= recipe.label %></a></li>

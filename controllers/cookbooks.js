@@ -34,7 +34,7 @@ function create(req, res) {
 
 function show(req, res) {
   Cookbook.findById(req.params.id)
-  // .populate('recipes')
+  .populate('recipes')
   .then(cookbook => {
     res.render('cookbooks/show', {
       title: cookbook.title,
@@ -47,11 +47,25 @@ function show(req, res) {
   })
 }
 
+function addRecipe(req, res) {
+  Cookbook.findById(req.params.id)
+  .then(cookbook => {
+    cookbook.recipes.push(req.params.recipeId)
+    cookbook.save()
+    res.redirect(`/cookbooks/${req.params.id}`)
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/error')
+  })
+}
+
 export {
   index,
   newCookbook as new,
   create,
   show,
+  addRecipe
   // edit,
   // update,
   // deleteCookbook as delete,

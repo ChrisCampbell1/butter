@@ -19,11 +19,20 @@
     <li><%= instruction %></li>
   <% }) %>
 </ol>
+<form action="/recipes/<%= recipe._id %>/copy" method="GET">
+  <button type="submit">Copy Recipe</button>
+</form>
 <% if (recipe.author.equals(user?.profile._id)) { %>
-  <form action="/recipes/<%= recipe._id %>/edit" method="get">
+  <h2>Add this recipe to a cookbook:</h2>
+  <% cookbooks.forEach(cookbook => { %>
+    <form action="/cookbooks/<%= cookbook._id %>/addRecipe/<%= recipe._id %>?_method=PATCH" method="POST">
+      <button type="submit">Add to: <%= cookbook.title %></button>
+    </form>
+  <% }) %>
+  <form action="/recipes/<%= recipe._id %>/edit" method="GET">
     <button type="submit">Edit Recipe</button>
   </form>
-  <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="post">
+  <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
     <button type="submit">Delete Recipe</button>
   </form>
 <% } %>

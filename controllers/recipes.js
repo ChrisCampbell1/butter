@@ -1,4 +1,5 @@
 import { Recipe } from "../models/recipe.js"
+import { Cookbook } from "../models/cookbook.js"
 
 function index(req, res) {
   Recipe.find({})
@@ -22,7 +23,7 @@ function create(req, res) {
   req.body.author = req.user.profile._id
   Recipe.create(req.body)
   .then(recipe => {
-    res.redirect('/recipes')
+    res.redirect(`/recipes/${recipe._id}`)
   })
   .catch(err => {
     console.log(err)
@@ -34,9 +35,13 @@ function show(req, res) {
   Recipe.findById(req.params.id)
   .populate('author')
   .then(recipe => {
-    res.render('recipes/show', {
-      title: recipe.label,
-      recipe
+    Cookbook.find({owner: req.user.profile._id})
+    .then(cookbooks => {
+      res.render('recipes/show', {
+        title: recipe.label,
+        recipe,
+        cookbooks
+      })
     })
   })
   .catch(err => {
@@ -107,6 +112,22 @@ function createComment(req, res) {
   })
 }
 
+function copy(req, res) {
+  Recipe.findById(req.params.id)
+  .then(recipe => {
+    recipe.ingredients = recipe.ingredients.join("\r\n")
+    recipe.instructions = recipe.instructions.join("\r\n")
+    res.render('recipes/copy', {
+      title: "Edit Copy",
+      recipe
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/error')
+  })
+}
+
 export {
   index,
   newRecipe as new,
@@ -115,5 +136,6 @@ export {
   edit,
   update,
   deleteRecipe as delete,
-  createComment
+  createComment,
+  copy
 }

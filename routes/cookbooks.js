@@ -8,6 +8,7 @@ router.get('/', isLoggedIn, cookbooksCtrl.index)
 router.get('/new', isLoggedIn, cookbooksCtrl.new)
 router.get('/:id', isLoggedIn, cookbooksCtrl.show)
 router.post('/', isLoggedIn, cookbooksCtrl.create)
+router.patch('/:id/addRecipe/:recipeId', cookbooksCtrl.addRecipe)
 
 export {
   router
