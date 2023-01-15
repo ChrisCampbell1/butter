@@ -19,9 +19,9 @@
     <li><%= instruction %></li>
   <% }) %>
 </ol>
-<form action="/recipes/<%= recipe._id %>/copy" method="GET">
-  <button type="submit">Copy Recipe</button>
-</form>
+  <form action="/recipes/<%= recipe._id %>/copy" method="GET">
+    <button type="submit">Copy Recipe</button>
+  </form>
 <% if (recipe.author.equals(user?.profile._id)) { %>
   <h2>Add this recipe to a cookbook:</h2>
   <% cookbooks.forEach(cookbook => { %>

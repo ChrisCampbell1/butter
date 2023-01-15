@@ -60,12 +60,26 @@ function addRecipe(req, res) {
   })
 }
 
+function removeRecipe(req, res) {
+  Cookbook.findById(req.params.id)
+  .then(cookbook => {
+    cookbook.recipes.splice(cookbook.recipes.indexOf(req.params.recipeId), 1)
+    cookbook.save()
+    res.redirect(`/cookbooks/${req.params.id}`)
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/error')
+  })
+}
+
 export {
   index,
   newCookbook as new,
   create,
   show,
-  addRecipe
+  addRecipe,
+  removeRecipe
   // edit,
   // update,
   // deleteCookbook as delete,

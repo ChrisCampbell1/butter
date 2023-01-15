@@ -6,11 +6,13 @@
 <% if (cookbook.recipes.length) { %>
   <ul>
   <% cookbook.recipes.forEach(recipe => { %>
-    <li><a href="/recipes/<%= recipe._id %>"><%= recipe.label %></a></li>
+    <li><a href="/recipes/<%= recipe._id %>"><%= recipe.label %></a><form action="/cookbooks/<%= cookbook._id %>/remove/<%= recipe._id %>?_method=DELETE" method="post">
+    <button type="submit">Remove from Cookbook</button>
+    </form></li>
   <% }) %>
   </ul>
 <% } else { %>
-  <h2>Let's add some recipes!</h2>
+  <h2>Let's add some <a href="/recipes">recipes!</a></h2>
 <% } %> 
 </main>
 
