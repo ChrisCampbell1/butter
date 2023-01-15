@@ -1,0 +1,13 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+<h1><%= title %></h1>
+<form action="/cookbooks" method="POST">
+  <label for="title-input">Title:</label>
+  <input type="text" name="title" id="title-input">
+  <button type="submit">Save Cookbook</button>
+</form>
+</main>
+
+<%- include('../partials/footer') %>

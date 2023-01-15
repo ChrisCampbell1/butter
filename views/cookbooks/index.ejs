@@ -1,0 +1,13 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+<h1><%= title %></h1>
+<ul>
+<% cookbooks.forEach(cookbook => { %>
+  <li><a href="/cookbooks/<%= cookbook._id %>"><%= cookbook.title %></a></li>
+<% }) %>
+</ul>
+</main>
+
+<%- include('../partials/footer') %>
