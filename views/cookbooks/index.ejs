@@ -3,10 +3,13 @@
 
 <main>
 <h1><%= title %></h1>
+<form action="/cookbooks/new" method="get">
+  <button type="submit">New Cookbook</button>
+</form>
 <ul>
 <% cookbooks.forEach(cookbook => { %>
   <li><a href="/cookbooks/<%= cookbook._id %>"><%= cookbook.title %></a></li>
-<% }) %>
+  <% }) %>
 </ul>
 </main>
 

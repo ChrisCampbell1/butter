@@ -1,7 +1,7 @@
 import { Cookbook } from "../models/cookbook.js"
 
 function index(req, res) {
-  Cookbook.find({})
+  Cookbook.find({owner: req.user.profile._id})
   .then(cookbooks => {
     res.render('cookbooks/index', {
       title: "My Cookbooks",
