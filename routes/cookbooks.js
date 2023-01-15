@@ -4,10 +4,10 @@ import { isLoggedIn } from '../middleware/middleware.js'
 
 const router = Router()
 
-router.get('/', cookbooksCtrl.index)
-router.get('/new', cookbooksCtrl.new)
-router.get('/:id', cookbooksCtrl.show)
-router.post('/', cookbooksCtrl.create)
+router.get('/', isLoggedIn, cookbooksCtrl.index)
+router.get('/new', isLoggedIn, cookbooksCtrl.new)
+router.get('/:id', isLoggedIn, cookbooksCtrl.show)
+router.post('/', isLoggedIn, cookbooksCtrl.create)
 
 export {
   router
