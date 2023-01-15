@@ -50,9 +50,12 @@ function show(req, res) {
 function addRecipe(req, res) {
   Cookbook.findById(req.params.id)
   .then(cookbook => {
-    cookbook.recipes.push(req.params.recipeId)
-    cookbook.save()
-    res.redirect(`/cookbooks/${req.params.id}`)
+    if(cookbook.recipes.indexOf(req.params.recipeId) === -1){
+      cookbook.recipes.push(req.params.recipeId)
+      cookbook.save()
+      res.redirect(`/cookbooks/${req.params.id}`)
+    }
+    else res.redirect(`/cookbooks/${req.params.id}`)
   })
   .catch(err => {
     console.log(err)
