@@ -34,6 +34,7 @@ function create(req, res) {
 
 function show(req, res) {
   Cookbook.findById(req.params.id)
+  // .populate('recipes')
   .then(cookbook => {
     res.render('cookbooks/show', {
       title: cookbook.title,
