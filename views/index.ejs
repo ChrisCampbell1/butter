@@ -12,7 +12,15 @@
           alt="<%= user.profile.name %> avatar"
         />
       </div>
-      <p>placeholder for top recipes/cookbook</p>
+      <h2>My Cookbooks</h2>
+      <form action="/cookbooks/new" method="get">
+        <button type="submit">New Cookbook</button>
+      </form>
+      <ul>
+      <% cookbooks.forEach(cookbook => { %>
+        <li><a href="/cookbooks/<%= cookbook._id %>"><%= cookbook.title %></a></li>
+        <% }) %>
+      </ul>
     <% } %>
   <% } else { %>
     <h1>Please Sign In</h1>
