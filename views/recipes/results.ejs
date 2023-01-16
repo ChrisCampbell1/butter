@@ -8,6 +8,10 @@
     <li><a href="#"><%= hit.recipe.label %> / <img src="<%= hit.recipe.image %>" alt=""> </a></li>
   <% }) %>
 </ul>
+<form action="/recipes/results/more" method="POST">
+  <input type="hidden" value="<%= results._links.next.href %>" name="more">
+  <button type="submit">Load More Recipes</button>
+</form>
 <h2>Recipe Search</h2>
 <%- include('../partials/search') %>
 </main>
