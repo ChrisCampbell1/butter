@@ -133,6 +133,22 @@ function copy(req, res) {
   })
 }
 
+function showResults(req, res){
+  axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${req.body.q}&app_id=${process.env.RECIPE_APP_ID}&app_key=${process.env.RECIPE_API_KEY}`)
+  .then(response => {
+    console.log(req.body, "body")
+    console.log(response.data)  
+    res.render('recipes/results', {
+        title: "Results",
+        results: response.data
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/error')
+    })
+  }
+
 export {
   index,
   newRecipe as new,
@@ -142,5 +158,6 @@ export {
   update,
   deleteRecipe as delete,
   createComment,
-  copy
+  copy,
+  showResults
 }
