@@ -76,14 +76,25 @@ function removeRecipe(req, res) {
   })
 }
 
+function deleteCookbook(req, res) {
+  Cookbook.findByIdAndDelete(req.params.id)
+  .then(cookbook => {
+    res.redirect('/')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/error')
+  })
+}
+
 export {
   index,
   newCookbook as new,
   create,
   show,
   addRecipe,
-  removeRecipe
+  removeRecipe,
   // edit,
   // update,
-  // deleteCookbook as delete,
+  deleteCookbook as delete,
 }

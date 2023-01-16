@@ -18,7 +18,11 @@
       </form>
       <ul>
       <% cookbooks.forEach(cookbook => { %>
-        <li><a href="/cookbooks/<%= cookbook._id %>"><%= cookbook.title %></a></li>
+        <li><a href="/cookbooks/<%= cookbook._id %>"><%= cookbook.title %></a>
+        <form action="/cookbooks/<%= cookbook._id %>?_method=DELETE" method="POST">
+          <button type="submit">Delete Cookbook</button>
+        </form>
+        </li>
         <% }) %>
       </ul>
     <% } %>
