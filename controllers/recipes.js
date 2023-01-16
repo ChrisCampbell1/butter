@@ -1,12 +1,17 @@
 import { Recipe } from "../models/recipe.js"
 import { Cookbook } from "../models/cookbook.js"
+import axios from "axios"
 
 function index(req, res) {
-  Recipe.find({})
-  .then(recipes => {
-    res.render('recipes/index', {
-      title: "All Recipes",
-      recipes
+  axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=${process.env.RECIPE_APP_ID}&app_key=${process.env.RECIPE_API_KEY}`)
+  .then(response => {
+    Recipe.find({})
+    .then(recipes => {
+      res.render('recipes/index', {
+        title: "All Recipes",
+        recipes,
+        results: response.data
+      })
     })
   })
 }
