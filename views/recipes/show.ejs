@@ -4,7 +4,7 @@
 <main>
 <h1><%= title %></h1>
 <h2>Author:</h2>
-<h4><%= recipe.author.name %></h4>
+<h4><a href="/users/<%= recipe.author._id %>"><%= recipe.author.name %></a></h4>
 <h3>Description</h3>
 <p><%= recipe.description %></p>
 <h3>Ingredients</h3>
