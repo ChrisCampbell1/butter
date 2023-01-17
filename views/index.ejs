@@ -4,7 +4,7 @@
 <main>
   <img src="/assets/logo.png" alt="butter logo" width="400px">
   <% if (user) { %>
-    <h1>hello, <%= user ? user.profile.name : "friend" %>, let's get cooking!</h1>
+    <h1>Hello, <%= user ? user.profile.name.split(" ")[0] : "friend" %>, let's get cooking!</h1>
     <% if (user?.profile.avatar) { %>
       <div>
         <img
@@ -27,23 +27,28 @@
       </ul>
     <% } %>
   <% } else { %>
-    <h1>Please Sign In</h1>
-    <div>
-      <div 
-        id="g_id_onload"
-        data-client_id="<%= googleClientID %>"
-        data-login_uri="/auth/google"
-        data-auto_prompt="false"
-      ></div>
-      <div 
-        class="g_id_signin right"
-        data-type="standard"
-        data-size="large"
-        data-theme="outline"
-        data-text="sign_in_with"
-        data-shape="rectangular"
-        data-logo_alignment="left"
-      ></div>
+    <div id="log-in-video">
+      <video autoplay muted loop>
+        <source src="/assets/login-video.mp4" type="video/mp4" />
+      </video>
+      <div id="log-in">
+        <h1>Please Sign In</h1>
+        <div 
+          id="g_id_onload"
+          data-client_id="<%= googleClientID %>"
+          data-login_uri="/auth/google"
+          data-auto_prompt="false"
+        ></div>
+        <div 
+          class="g_id_signin right"
+          data-type="standard"
+          data-size="large"
+          data-theme="outline"
+          data-text="sign_in_with"
+          data-shape="rectangular"
+          data-logo_alignment="left"
+        ></div>
+      </div>
     </div>
   <% } %>
 
