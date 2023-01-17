@@ -1,22 +1,22 @@
 import { Router } from 'express'
-import * as recipesRouter from '../controllers/recipes.js'
+import * as recipesCtrl from '../controllers/recipes.js'
 import { isLoggedIn } from '../middleware/middleware.js'
 
 const router = Router()
 
-router.get('/', isLoggedIn, recipesRouter.index)
-router.get('/new', isLoggedIn, recipesRouter.new)
-router.get('/:id', isLoggedIn, recipesRouter.show)
-router.get('/:id/edit', isLoggedIn, recipesRouter.edit)
-router.get('/:id/copy', isLoggedIn, recipesRouter.copy)
-router.post('/', isLoggedIn, recipesRouter.create)
-router.post('/import', isLoggedIn, recipesRouter.import)
-router.post('/results', isLoggedIn, recipesRouter.showResults)
-router.post('/results/more', isLoggedIn, recipesRouter.showMore)
-router.post('/:id/comments', isLoggedIn, recipesRouter.createComment)
-router.put('/:id', isLoggedIn, recipesRouter.update)
-router.delete('/:id', isLoggedIn, recipesRouter.delete)
-router.delete('/:id/comments/:commentId', isLoggedIn, recipesRouter.deleteComment)
+router.get('/', isLoggedIn, recipesCtrl.index)
+router.get('/new', isLoggedIn, recipesCtrl.new)
+router.get('/:id', isLoggedIn, recipesCtrl.show)
+router.get('/:id/edit', isLoggedIn, recipesCtrl.edit)
+router.get('/:id/copy', isLoggedIn, recipesCtrl.copy)
+router.post('/', isLoggedIn, recipesCtrl.create)
+router.post('/import', isLoggedIn, recipesCtrl.import)
+router.post('/results', isLoggedIn, recipesCtrl.showResults)
+router.post('/results/more', isLoggedIn, recipesCtrl.showMore)
+router.post('/:id/comments', isLoggedIn, recipesCtrl.createComment)
+router.put('/:id', isLoggedIn, recipesCtrl.update)
+router.delete('/:id', isLoggedIn, recipesCtrl.delete)
+router.delete('/:id/comments/:commentId', isLoggedIn, recipesCtrl.deleteComment)
 
 export {
   router
