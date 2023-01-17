@@ -13,8 +13,8 @@ html {
 }
 
 body {
-  background-color: black;
-  color: white;
+  background-color: beige;
+  color: black;
   /* Use a system font, if none are available use any found sans-sarif font */
   font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
     'Helvetica Neue', sans-serif;
@@ -25,16 +25,41 @@ nav {
   background-color: black;
   color: white;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding: 10px;
   min-height: 60px;
 }
 
+#nav-logo {
+  margin-top: -50px;
+  margin-bottom: -50px;
+}
+
+nav div {
+  display: flex;
+  flex-direction: row;
+}
+
+nav li {
+  list-style: none;
+  display: inline;
+}
+
 nav a {
-  color: white;
+  font-size: 16px;
+  color: #fff9f3;
   margin: auto;
+}
+
+nav form {
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+}
+
+nav form button {
+  width: auto;
 }
 
 main {
@@ -42,8 +67,8 @@ main {
   align-items: center;
   /* justify-content: center; */
   flex-direction: column;
-  background-color: black;
-  color: white;
+  background-color: #fff9f3;
+  color: black;
 }
 
 #log-in-video {
@@ -74,11 +99,12 @@ main {
   text-align: center;
   align-items: center;
   background-color: rgba(211,211, 211, .3);
+  color: white;
   border-radius: 15px;
 }
 
 .right {
-  /* margin-left: auto; */
+  margin-left: auto;
 }
 
 form {

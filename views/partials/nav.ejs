@@ -3,18 +3,28 @@
   <% } %>
 </head>
 <body>
+  <% if (user) { %>
   <nav>
-    <% if (user) { %>
-      <a href="/">Home</a>
-      <a href="/recipes">Recipes Index</a>
-      <a href="/recipes/new">Add Recipe</a>
-      <a href="/cookbooks">Cookbooks</a>
-      <a href="/cookbooks/new">New Cookbook</a>
-      <a href="/users">Users</a>
-      <%- include('./search') %>
-      <a href="/auth/logout" class="right">
-        <button type="submit">Logout</button>
-      </a>
+    <div>
+      <a href="/"><img src="/assets/logo.png" alt="butter logo" height="200px" id="nav-logo"></a>
+    </div>
+        <div>
+          <a href="/recipes">Recipes</a>
+          <a href="/recipes">All Recipes</a>
+          <a href="/recipes/new">New Recipe</a>
+          <a href="/cookbooks">Cookbooks</a>
+          <a href="/cookbooks">My Cookbooks</a>
+          <a href="/cookbooks/new">New Cookbook</a>
+          <a href="/users">Users</a>
+          <%- include('./search') %>
+          <a href="/auth/logout" class="right">
+            <button type="submit">Logout</button>
+          </a>
+        </div>
     <% } else { %>
+      <nav>
+        <div>
+          <a href="/"><img src="/assets/logo.png" alt="butter logo" height="200px" id="nav-logo"></a>
+        </div>
     <% } %>
-  </nav>
+      </nav>

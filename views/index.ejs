@@ -2,9 +2,8 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <img src="/assets/logo.png" alt="butter logo" width="400px">
   <% if (user) { %>
-    <h1>Hello, <%= user ? user.profile.name.split(" ")[0] : "friend" %>, let's get cooking!</h1>
+    <h1>Hi, <%= user ? user.profile.name.split(" ")[0] : "friend" %>, let's cook!</h1>
     <% if (user?.profile.avatar) { %>
       <div>
         <img
@@ -27,6 +26,7 @@
       </ul>
     <% } %>
   <% } else { %>
+    </div>
     <div id="log-in-video">
       <video autoplay muted loop>
         <source src="/assets/login-video.mp4" type="video/mp4" />
@@ -40,7 +40,7 @@
           data-auto_prompt="false"
         ></div>
         <div 
-          class="g_id_signin right"
+          class="g_id_signin"
           data-type="standard"
           data-size="large"
           data-theme="outline"
