@@ -10,11 +10,13 @@ router.get('/:id', isLoggedIn, recipesRouter.show)
 router.get('/:id/edit', isLoggedIn, recipesRouter.edit)
 router.get('/:id/copy', isLoggedIn, recipesRouter.copy)
 router.post('/', isLoggedIn, recipesRouter.create)
+router.post('/import', isLoggedIn, recipesRouter.import)
 router.post('/results', isLoggedIn, recipesRouter.showResults)
 router.post('/results/more', isLoggedIn, recipesRouter.showMore)
 router.post('/:id/comments', isLoggedIn, recipesRouter.createComment)
 router.put('/:id', isLoggedIn, recipesRouter.update)
 router.delete('/:id', isLoggedIn, recipesRouter.delete)
+router.delete('/:id/comments/:commentId', isLoggedIn, recipesRouter.deleteComment)
 
 export {
   router

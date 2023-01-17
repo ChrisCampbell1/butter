@@ -1,6 +1,8 @@
 import { Recipe } from "../models/recipe.js"
 import { Cookbook } from "../models/cookbook.js"
 import axios from "axios"
+import fetch from "node-fetch"
+import * as jsonld from 'jsonld'
 
 function index(req, res) {
   axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=${process.env.RECIPE_APP_ID}&app_key=${process.env.RECIPE_API_KEY}`)
@@ -23,6 +25,7 @@ function newRecipe (req, res) {
 }
 
 function create(req, res) {
+  console.log(req.body)
   req.body.ingredients = req.body.ingredients.split("\r\n")
   req.body.instructions = req.body.instructions.split("\r\n")
   req.body.author = req.user.profile._id
@@ -38,7 +41,10 @@ function create(req, res) {
 
 function show(req, res) {
   Recipe.findById(req.params.id)
-  .populate('author')
+  .populate([
+    {path: "author"},
+    {path: "comments.commenter"}
+  ])
   .then(recipe => {
     Cookbook.find({owner: req.user.profile._id})
     .then(cookbooks => {
@@ -161,6 +167,27 @@ function showMore(req, res) {
     })
 }
 
+async function importRecipe(req, res) {
+  console.log(req.body.url, "url")
+  const doc = await fetch(req.body.url).then(response => response.text())
+  console.log(doc)
+  res.redirect('/recipes')
+}
+
+function deleteComment(req, res) {
+  Recipe.findById(req.params.id)
+  .then(recipe => {
+    const commentDoc = recipe.comments.id(req.params.commentId)
+    recipe.comments.remove(commentDoc)
+    recipe.save()
+    res.redirect(`/recipes/${req.params.id}`)
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/error')
+  })
+}
+
 export {
   index,
   newRecipe as new,
@@ -172,5 +199,7 @@ export {
   createComment,
   copy,
   showResults,
-  showMore
+  showMore,
+  importRecipe as import,
+  deleteComment
 }

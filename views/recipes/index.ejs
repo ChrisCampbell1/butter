@@ -11,6 +11,12 @@
 </ul>
 <h2>Recipe Search</h2>
 <%- include('../partials/search') %>
+
+<h2>Import a Recipe</h2>
+<form action="/recipes/import" method="POST">
+  <input type="url" name="url">
+  <button type="submit">Import</button>
+</form>
 </main>
 
 <%- include('../partials/footer') %>

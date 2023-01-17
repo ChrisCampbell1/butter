@@ -5,7 +5,7 @@
 <h1><%= title %></h1>
 <ul>
   <% results.hits.forEach(hit => { %>
-    <li><a href="#"><%= hit.recipe.label %> / <img src="<%= hit.recipe.image %>" alt=""> </a></li>
+    <li><a href="/recipes"><%= hit.recipe.label %> / <img src="<%= hit.recipe.image %>" alt=""> </a></li>
   <% }) %>
 </ul>
 <form action="/recipes/results/more" method="POST">

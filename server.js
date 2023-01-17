@@ -9,6 +9,7 @@ import logger from 'morgan'
 import methodOverride from 'method-override'
 import passport from 'passport'
 
+
 // import custom middleware
 import { passDataToView } from './middleware/middleware.js'
 
