@@ -7,9 +7,6 @@
   <nav>
     <div id="logo-div">
       <a href="/"><img src="/assets/logo.png" alt="butter logo" height="200px" id="nav-logo"></a>
-      <a href="/auth/logout" class="right">
-        <button type="submit">Logout</button>
-      </a>
     </div>
         <div>
           <ul>
@@ -39,10 +36,15 @@
               <a href="/users">Users</a>
             </li>
           </ul>
-          <form class="right-form" action="/recipes/results" method="post">
-            <input type="search" name="q" placeholder="Recipe Search">
-            <button type="submit">🔍</button>
-          </form>
+          <div class="search-logout">
+            <form action="/recipes/results" method="post">
+              <input type="search" name="q" placeholder="Recipe Search">
+              <button type="submit">🔍</button>
+            </form>
+            <a href="/auth/logout" class="">
+              <button class="logout-btn" type="submit">Logout</button>
+            </a>
+          </div>
         </div>
     <% } else { %>
       <nav>
