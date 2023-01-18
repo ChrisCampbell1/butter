@@ -4,27 +4,37 @@
 <main>
   <% if (user) { %>
     <h1>Hi, <%= user ? user.profile.name.split(" ")[0] : "friend" %>, let's cook!</h1>
-    <% if (user?.profile.avatar) { %>
-      <div>
-        <img
-          src="<%= user.profile.avatar %>"
-          alt="<%= user.profile.name %> avatar"
-        />
-      </div>
-      <h2>My Cookbooks</h2>
-      <form action="/cookbooks/new" method="get">
-        <button type="submit">New Cookbook</button>
-      </form>
-      <ul>
-      <% cookbooks.forEach(cookbook => { %>
-        <li><a href="/cookbooks/<%= cookbook._id %>"><%= cookbook.title %></a>
-        <form action="/cookbooks/<%= cookbook._id %>?_method=DELETE" method="POST">
-          <button type="submit">Delete Cookbook</button>
-        </form>
-        </li>
+    <h2>My Cookbooks</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Delete Cookbook</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% cookbooks.forEach(cookbook => { %>
+          <tr>
+            <td>
+              <a href="/cookbooks/<%= cookbook._id %>"><%= cookbook.title %></a>
+            </td>
+            <td>
+              <form action="/cookbooks/<%= cookbook._id %>?_method=DELETE" method="POST">
+                <button class="delete-cookbook-btn" type="submit">X</button>
+              </form>
+            </td>
+          </tr>
         <% }) %>
-      </ul>
-    <% } %>
+      </tbody>
+    </table>
+    <h2>My Recipes</h2>
+    <ul>
+      <% recipes.forEach(recipe => { %>
+        <li>
+          <a href="/recipes/<%= recipe._id %>"><%= recipe.label %></a>
+        </li>
+      <% }) %>
+    </ul>
   <% } else { %>
     </div>
     <div id="log-in-video">
