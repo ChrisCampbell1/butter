@@ -10,6 +10,7 @@
     </div>
     <div id="desktop-menu">
       <ul>
+        <li><a href="/">Home</a></li>
         <li>
           <a href="/recipes">Recipes</a>
           <ul class="dropdown">
@@ -44,15 +45,19 @@
         <a href="/auth/logout" class="">
           <button class="logout-btn" type="submit">Logout</button>
         </a>
+        <a href="/users/<%= user.profile._id %>"><img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar" width="20px"/></a>
       </div>
     </div>
-    <button id="mobile-menu-btn">menu</button>
+    <button id="mobile-menu-btn">&#9776;</button>
     <div id="mobile-menu">
+      <a href="/">Home</a>
       <a href="/recipes">All Recipes</a>
       <a href="/recipes/new">New Recipe</a>
       <a href="/cookbooks">All Cookbooks</a>
       <a href="/cookbooks/new">New Cookbook</a>
-      <form action="/recipes/results" method="post">
+      <a href="/users">Users</a>
+      <a href="/users/<%= user.profile._id %>">My Profile</a>
+      <form id="mobile-menu-search" action="/recipes/results" method="post">
         <input type="search" name="q" placeholder="Recipe Search">
         <button type="submit">🔍</button>
       </form>

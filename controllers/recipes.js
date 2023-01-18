@@ -8,6 +8,7 @@ function index(req, res) {
   axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=${process.env.RECIPE_APP_ID}&app_key=${process.env.RECIPE_API_KEY}`)
   .then(response => {
     Recipe.find({})
+    .populate('author')
     .then(recipes => {
       res.render('recipes/index', {
         title: "All Recipes",

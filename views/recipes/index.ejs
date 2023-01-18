@@ -4,11 +4,22 @@
 <main>
 <h1><%= title %></h1>
 <h2>User Sumbitted Recipes:</h2>
-<ul>
-  <% recipes.forEach(recipe => { %>
-    <li><a href="/recipes/<%= recipe._id %>"><%= recipe.label %> </a></li>
-  <% }) %>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Recipe</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% recipes.forEach(recipe => { %>
+      <tr>
+        <td><a href="/recipes/<%= recipe._id %>"><%= recipe.label %> </a></td>
+        <td><a href="/users/<%= recipe.author %>"><%= recipe.author.name %></a></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
 <h2>Recipe Search</h2>
 <%- include('../partials/search') %>
 
