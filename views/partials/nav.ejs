@@ -8,44 +8,58 @@
     <div id="logo-div">
       <a href="/"><img src="/assets/logo.png" alt="butter logo" height="200px" id="nav-logo"></a>
     </div>
-        <div>
-          <ul>
+    <div id="desktop-menu">
+      <ul>
+        <li>
+          <a href="/recipes">Recipes</a>
+          <ul class="dropdown">
             <li>
-              <a href="/recipes">Recipes</a>
-              <ul class="dropdown">
-                <li>
-                  <a href="/recipes">All Recipes</a>
-                </li>
-                <li>
-                  <a href="/recipes/new">New Recipe</a>
-                </li>
-              </ul>
+              <a href="/recipes">All Recipes</a>
             </li>
             <li>
-              <a href="/cookbooks">Cookbooks</a>
-              <ul class="dropdown">
-                <li>
-                  <a href="/cookbooks">All Cookbooks</a>
-                </li>
-                <li>
-                  <a href="/cookbooks/new">New Cookbook</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="/users">Users</a>
+              <a href="/recipes/new">New Recipe</a>
             </li>
           </ul>
-          <div class="search-logout">
-            <form action="/recipes/results" method="post">
-              <input type="search" name="q" placeholder="Recipe Search">
-              <button type="submit">🔍</button>
-            </form>
-            <a href="/auth/logout" class="">
-              <button class="logout-btn" type="submit">Logout</button>
-            </a>
-          </div>
-        </div>
+        </li>
+        <li>
+          <a href="/cookbooks">Cookbooks</a>
+          <ul class="dropdown">
+            <li>
+              <a href="/cookbooks">All Cookbooks</a>
+            </li>
+            <li>
+              <a href="/cookbooks/new">New Cookbook</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="/users">Users</a>
+        </li>
+      </ul>
+      <div class="search-logout">
+        <form action="/recipes/results" method="post">
+          <input type="search" name="q" placeholder="Recipe Search">
+          <button type="submit">🔍</button>
+        </form>
+        <a href="/auth/logout" class="">
+          <button class="logout-btn" type="submit">Logout</button>
+        </a>
+      </div>
+    </div>
+    <button id="mobile-menu-btn">menu</button>
+    <div id="mobile-menu">
+      <a href="/recipes">All Recipes</a>
+      <a href="/recipes/new">New Recipe</a>
+      <a href="/cookbooks">All Cookbooks</a>
+      <a href="/cookbooks/new">New Cookbook</a>
+      <form action="/recipes/results" method="post">
+        <input type="search" name="q" placeholder="Recipe Search">
+        <button type="submit">🔍</button>
+      </form>
+      <a href="/auth/logout" class="">
+        <button class="logout-btn" type="submit">Logout</button>
+      </a>
+    </div>
     <% } else { %>
       <nav>
         <div>

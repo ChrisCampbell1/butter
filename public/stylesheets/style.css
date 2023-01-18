@@ -181,6 +181,16 @@ form label {
   margin-right: 50px;
 }
 
+#mobile-menu-btn {
+  visibility: hidden;
+  display: none;
+}
+
+#mobile-menu {
+  visibility: hidden;
+  display: none;
+}
+
 @media only screen and (max-width: 768px) {
   #log-in-video {
     position: relative;
@@ -236,7 +246,7 @@ form label {
     justify-content: flex-end;
   }
   
-  nav div {
+  #desktop-menu {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -244,4 +254,21 @@ form label {
     display: none;
   }
 
+  #mobile-menu-btn {
+    visibility: visible;
+    display: block;
+  }
+  
+  #mobile-menu {
+    visibility: hidden;
+    display: none;
+  }
+
+  #mobile-menu.visible {
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
 }
