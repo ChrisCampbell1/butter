@@ -1,8 +1,6 @@
 import { Recipe } from "../models/recipe.js"
 import { Cookbook } from "../models/cookbook.js"
 import axios from "axios"
-import fetch from "node-fetch"
-import * as jsonld from 'jsonld'
 
 function index(req, res) {
   axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=${process.env.RECIPE_APP_ID}&app_key=${process.env.RECIPE_API_KEY}`)
@@ -168,13 +166,6 @@ function showMore(req, res) {
     })
 }
 
-async function importRecipe(req, res) {
-  console.log(req.body.url, "url")
-  const doc = await fetch(req.body.url).then(response => response.text())
-  console.log(doc)
-  res.redirect('/recipes')
-}
-
 function deleteComment(req, res) {
   Recipe.findById(req.params.id)
   .then(recipe => {
@@ -201,6 +192,5 @@ export {
   copy,
   showResults,
   showMore,
-  importRecipe as import,
   deleteComment
 }

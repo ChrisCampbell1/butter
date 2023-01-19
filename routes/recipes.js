@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import * as recipesCtrl from '../controllers/recipes.js'
 import { isLoggedIn } from '../middleware/middleware.js'
+import * as crawler from '../controllers/crawler.js'
 
 const router = Router()
 
@@ -10,7 +11,7 @@ router.get('/:id', isLoggedIn, recipesCtrl.show)
 router.get('/:id/edit', isLoggedIn, recipesCtrl.edit)
 router.get('/:id/copy', isLoggedIn, recipesCtrl.copy)
 router.post('/', isLoggedIn, recipesCtrl.create)
-router.post('/import', isLoggedIn, recipesCtrl.import)
+router.post('/import', isLoggedIn, crawler.getRecipe)
 router.post('/results', isLoggedIn, recipesCtrl.showResults)
 router.post('/results/more', isLoggedIn, recipesCtrl.showMore)
 router.post('/:id/comments', isLoggedIn, recipesCtrl.createComment)

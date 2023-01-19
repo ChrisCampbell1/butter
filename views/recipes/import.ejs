@@ -1,0 +1,23 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+<h1><%= title %></h1>
+<form action="/recipes" method="POST">
+  <label for="label-input">Name:</label>
+  <input type="text" name="label" id="label-input" placeholder="Recipe Name" value="<%= recipeObj.name %>">
+  <label for="url-input">Original Recipe URL:</label>
+  <input type="text" name="url" placeholder="copy original recipe url here" id="url-input" value="<%= recipeObj.url %>">
+  <label for="description-input">Description:</label>
+  <textarea name="description" id="description-input" placeholder="Description"><%= recipeObj.description %></textarea>
+  <label for="ingredients-input">Ingredients:</label>
+  <textarea name="ingredients" id="ingredients-input" placeholder="separate ingredients with a comma, one per line"><%= recipeObj.recipeIngredient %></textarea>
+  <label for="instructions-input">Instructions:</label>
+  <textarea name="instructions" id="instructions-input" placeholder="separate instructions with a comma, one per line"><%= recipeObj.recipeInstructions %></textarea>
+  <label for="img-input">Image Address:</label>
+  <input type="text" id="img-input" name="image" placeholder="copy URL here" value="<%= recipeObj.image %>">
+  <button type="submit">Save Recipe</button>
+</form>
+</main>
+
+<%- include('../partials/footer') %>
