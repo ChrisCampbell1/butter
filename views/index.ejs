@@ -20,7 +20,7 @@
             </td>
             <td>
               <form action="/cookbooks/<%= cookbook._id %>?_method=DELETE" method="POST">
-                <button class="delete-cookbook-btn" type="submit">X</button>
+                <button class="delete-cookbook-btn" type="submit">&#128465</button>
               </form>
             </td>
           </tr>
@@ -28,13 +28,16 @@
       </tbody>
     </table>
     <h2>My Recipes</h2>
-    <ul>
+    <div class="recipe-container">
       <% recipes.forEach(recipe => { %>
-        <li>
-          <a href="/recipes/<%= recipe._id %>"><%= recipe.label %></a>
-        </li>
+        <div class="recipe-card">
+          <a href="/recipes/<%= recipe._id %>"><img src="<%= recipe.image %>" alt="<%= recipe.label %> photo"></a>
+          <a href="/recipes/<%= recipe._id %>"><h3><%= recipe.label %></h3></a>
+          <p>Ingredient Count: <%= recipe.ingredients.length %></p>
+          <p>Number of Steps: <%= recipe.instructions.length %></p>
+        </div>
       <% }) %>
-    </ul>
+    </div>
   <% } else { %>
     </div>
     <div id="log-in-video">
