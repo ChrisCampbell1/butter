@@ -33,7 +33,7 @@ Planning materials and original wireframes can be found [here](https://trello.co
 * Web Scraping help from [Kevin Sahin](https://www.pexels.com/@polina-kovaleva/) at [ScrapingBee](https://www.scrapingbee.com/blog/web-scraping-javascript/)
 
 ## Ice Box
-- [ ] Implement web-scraping a user can import a recipe without manually entering data
+- [ ] Implement web-scraping a user can import a recipe without manually entering data - partially complete
 - [ ] Add recipe categories for easier searching as the recipe database grows
 - [ ] Only show original recipes in the user submitted recipes section
 - [ ] Let users save a bio in their profile
