@@ -1,0 +1,13 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+<h1><%= title %></h1>
+<h2>Import a Recipe</h2>
+<form action="/recipes/import" method="POST">
+  <input type="url" name="url">
+  <button type="submit">Import</button>
+</form>
+</main>
+
+<%- include('../partials/footer') %>

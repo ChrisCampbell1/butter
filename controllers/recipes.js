@@ -180,6 +180,12 @@ function deleteComment(req, res) {
   })
 }
 
+function importRecipe(req, res) {
+  res.render('recipes/instant-import', {
+    title: "Instant Import"
+  })
+}
+
 export {
   index,
   newRecipe as new,
@@ -192,5 +198,6 @@ export {
   copy,
   showResults,
   showMore,
-  deleteComment
+  deleteComment,
+  importRecipe as import
 }

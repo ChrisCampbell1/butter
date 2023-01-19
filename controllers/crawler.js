@@ -34,7 +34,7 @@ async function getRecipe(req, res) {
     })
 	} 
   catch (error) {
-    res.render('importerror', {
+    res.render('import-error', {
       title: "Import Error"
     })
 		//throw error;//needs redirect to import error page

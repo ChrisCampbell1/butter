@@ -7,6 +7,7 @@ const router = Router()
 
 router.get('/', isLoggedIn, recipesCtrl.index)
 router.get('/new', isLoggedIn, recipesCtrl.new)
+router.get('/instant-import', isLoggedIn, recipesCtrl.import)
 router.get('/:id', isLoggedIn, recipesCtrl.show)
 router.get('/:id/edit', isLoggedIn, recipesCtrl.edit)
 router.get('/:id/copy', isLoggedIn, recipesCtrl.copy)
