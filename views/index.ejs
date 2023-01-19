@@ -5,43 +5,51 @@
   <% if (user) { %>
     <h1>Hi, <%= user ? user.profile.name.split(" ")[0] : "friend" %>, let's cook!</h1>
     <h2>My Cookbooks</h2>
-    <table class="cookbooks-table">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Recipes</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% cookbooks.forEach(cookbook => { %>
+    <% if (cookbooks.length) { %>
+      <table class="cookbooks-table">
+        <thead>
           <tr>
-            <td>
-              <a href="/cookbooks/<%= cookbook._id %>"><%= cookbook.title %></a>
-            </td>
-            <td>
-              <%= cookbook.recipes.length %>
-            </td>
-            <td>
-              <form action="/cookbooks/<%= cookbook._id %>?_method=DELETE" method="POST">
-                <button class="delete-cookbook-btn" type="submit">&#128465</button>
-              </form>
-            </td>
+            <th>Title</th>
+            <th>Recipes</th>
+            <th>Delete</th>
           </tr>
-        <% }) %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% cookbooks.forEach(cookbook => { %>
+            <tr>
+              <td>
+                <a href="/cookbooks/<%= cookbook._id %>"><%= cookbook.title %></a>
+              </td>
+              <td>
+                <%= cookbook.recipes.length %>
+              </td>
+              <td>
+                <form action="/cookbooks/<%= cookbook._id %>?_method=DELETE" method="POST">
+                  <button class="delete-cookbook-btn" type="submit">&#128465</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <a href="/cookbooks/new">Create a cookbook to start saving recipes</a>
+    <% } %>
     <h2>My Recipes</h2>
-    <div class="recipe-container">
-      <% recipes.forEach(recipe => { %>
-        <div class="recipe-card">
-          <a href="/recipes/<%= recipe._id %>"><img src="<%= recipe.image %>" alt="<%= recipe.label %> photo"></a>
-          <a href="/recipes/<%= recipe._id %>"><h3><%= recipe.label %></h3></a>
-          <p>Ingredient Count: <%= recipe.ingredients.length %></p>
-          <p>Number of Steps: <%= recipe.instructions.length %></p>
-        </div>
-      <% }) %>
-    </div>
+    <% if (recipes.length) { %>
+      <div class="recipe-container">
+        <% recipes.forEach(recipe => { %>
+          <div class="recipe-card">
+            <a href="/recipes/<%= recipe._id %>"><img src="<%= recipe.image %>" alt="<%= recipe.label %> photo"></a>
+            <a href="/recipes/<%= recipe._id %>"><h3><%= recipe.label %></h3></a>
+            <p>Ingredient Count: <%= recipe.ingredients.length %></p>
+            <p>Number of Steps: <%= recipe.instructions.length %></p>
+          </div>
+        <% }) %>
+      </div>
+    <% } else { %>
+      <a href="/recipes/new">Save a new recipe</a> or <a href="/recipes">view other user's recipes here.</a> Once you save your own recipes, you'll see them here.
+    <% } %>
   <% } else { %>
     </div>
     <div id="log-in-video">
