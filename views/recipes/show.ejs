@@ -7,20 +7,28 @@
 <h3>Author:</h3>
 <h4><a href="/users/<%= recipe.author._id %>"><%= recipe.author.name %></a></h4>
 <h4><a href="<%= recipe.url %>" target="_blank">Check out the original recipe that inspired this dish</a></h4>
-<h3>Description</h3>
-<p><%= recipe.description %></p>
-<h3>Ingredients</h3>
-<ul>
-  <% recipe.ingredients.forEach(ingredient => { %>
-    <li><%= ingredient %></li>
-  <% }) %>
-</ul>
-<h3>Instructions</h3>
-<ol>
-  <% recipe.instructions.forEach(instruction => { %>
-    <li><%= instruction %></li>
-  <% }) %>
-</ol>
+<div class="recipe-show-container">
+  <div class="recipe-show-detail">
+    <h3>Description</h3>
+    <p><%= recipe.description %></p>
+  </div>
+  <div class="recipe-show-detail">
+    <h3>Ingredients</h3>
+    <ul>
+      <% recipe.ingredients.forEach(ingredient => { %>
+        <li><%= ingredient %></li>
+      <% }) %>
+    </ul>
+  </div>
+  <div class="recipe-show-detail">
+    <h3>Instructions</h3>
+    <ol>
+      <% recipe.instructions.forEach(instruction => { %>
+        <li><%= instruction %></li>
+      <% }) %>
+    </ol>
+  </div>
+</div>
   <form action="/recipes/<%= recipe._id %>/copy" method="GET">
     <button type="submit">Copy Recipe</button>
   </form>
@@ -40,9 +48,9 @@
 <% } %>
 
 <h3>Comments</h3>
-<form action="/recipes/<%= recipe._id %>/comments" method="POST">
+<form class="comment-form" action="/recipes/<%= recipe._id %>/comments" method="POST">
   <label for="comment-input">Comment</label>
-  <textarea name="content" id="comment-input"></textarea>
+  <textarea name="content" id="comment-input" rows="5"></textarea>
   <label for="rating-input">Rating</label>
   <select name="rating" id="rating-input">
     <option value="5">5</option>
