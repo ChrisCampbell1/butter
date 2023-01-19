@@ -58,7 +58,7 @@ nav div {
 }
 
 nav a {
-  font-size: 16px;
+  font-size: 18px;
   color: #fff9f3;
   margin: auto;
   transition-duration: .5s;
@@ -73,7 +73,7 @@ nav button {
   background-color: unset;
   border: 0;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 nav button:hover {
