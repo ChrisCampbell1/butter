@@ -140,7 +140,7 @@ main {
 
 #log-in-video {
   position: relative;
-  height: 500px;
+  height: 1000px;
   width: 100%;
   display: flex;
   flex-direction: column;
