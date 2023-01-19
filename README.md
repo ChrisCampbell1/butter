@@ -24,9 +24,13 @@ Planning materials and original wireframes can be found [here](https://trello.co
 * Canva
 * [Edamam API](https://www.edamam.com/)
 * Cheerio
+* Axios
 
 ## Credits
-* Background video on login screen from [Polina Kovaleva](https://www.pexels.com/@polina-kovaleva/ )
+* Background video on login screen from [Polina Kovaleva](https://www.pexels.com/@polina-kovaleva/)
+* Button styling inspiration from [CSS Scan](https://getcssscan.com/)
+* Dropdown menu template from [CSS Tricks](https://css-tricks.com/)
+* Web Scraping help from [Kevin Sahin](https://www.pexels.com/@polina-kovaleva/) at [ScrapingBee](https://www.scrapingbee.com/blog/web-scraping-javascript/)
 
 ## Ice Box
 - [ ] Implement web-scraping a user can import a recipe without manually entering data
