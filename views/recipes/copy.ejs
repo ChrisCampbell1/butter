@@ -6,6 +6,8 @@
 <form action="/recipes" method="POST">
   <label for="label-input">Name:</label>
   <input type="text" name="label" id="label-input" placeholder="Recipe Name" value="<%= recipe.label %>">
+  <label for="url-input">Original Recipe URL:</label>
+  <input type="text" name="url" placeholder="copy original recipe url here" id="url-input" value="<%= recipe.url %>">
   <label for="description-input">Description:</label>
   <textarea name="description" id="description-input" placeholder="Description"><%= recipe.description %></textarea>
   <label for="ingredients-input">Ingredients:</label>

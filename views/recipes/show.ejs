@@ -4,8 +4,9 @@
 <main>
 <h1><%= title %></h1>
 <img src="<%= recipe.image %>" alt="<%= recipe.label %> image" width="50%">
-<h2>Author:</h2>
+<h3>Author:</h3>
 <h4><a href="/users/<%= recipe.author._id %>"><%= recipe.author.name %></a></h4>
+<h4><a href="<%= recipe.url %>" target="_blank">Check out the original recipe that inspired this dish</a></h4>
 <h3>Description</h3>
 <p><%= recipe.description %></p>
 <h3>Ingredients</h3>
@@ -77,7 +78,7 @@
           <td>
             <% if (comment.commenter._id.equals(user?.profile._id) || recipe.author._id.equals(user?.profile._id)) { %>
               <form action="/recipes/<%= recipe._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                <button>X</button>
+                <button class="delete-cookbook-btn">&#128465</button>
               </form>
             </td>
           <% } %>
