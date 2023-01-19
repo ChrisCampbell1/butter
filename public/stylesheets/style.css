@@ -333,7 +333,8 @@ form button:hover {
   width: 80%;
 }
 
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) { */
+@media only screen and (max-width: 875px) {
   #log-in-video {
     position: relative;
     height: 50rem;
@@ -415,6 +416,7 @@ form button:hover {
   #mobile-menu {
     visibility: hidden;
     display: none;
+    width: 100%;
   }
 
   #mobile-menu.visible {
