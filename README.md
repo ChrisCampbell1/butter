@@ -1,4 +1,4 @@
-# Butter
+# [Butter](https://butterapp.fly.dev/)
 ![Butter screenshot](./public/assets/butter-screenshot.png)
 
 ## [Use Butter Here](https://butterapp.fly.dev/)
@@ -32,7 +32,8 @@ Planning materials and original wireframes can be found [here](https://trello.co
 * Web Scraping help from [Kevin Sahin](https://www.scrapingbee.com/blog/web-scraping-javascript/) at [ScrapingBee](https://www.scrapingbee.com)
 
 ## Ice Box
-- [ ] Implement web-scraping a user can import a recipe without manually entering data - partially complete
+- [x] Implement web-scraping a user can import a recipe without manually entering data
+- [ ] Increase the number of supported sources for web-scraping
 - [ ] Add recipe categories for easier searching as the recipe database grows
 - [ ] Only show original recipes in the user submitted recipes section
 - [ ] Let users save a bio in their profile
