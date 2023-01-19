@@ -21,6 +21,15 @@ body {
   margin: 0;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 nav {
   background-color: black;
   color: white;
@@ -218,7 +227,7 @@ cursor: pointer;
   overflow: hidden;
   width: 300px;
   /* height: 600px; */
-  border: 1px solid darkgray;
+  border: 2px solid darkgray;
   margin: 20px;
   text-align: center;
 }
