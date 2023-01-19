@@ -3,14 +3,32 @@
 
 <main>
 <h1><%= title %></h1>
-<form action="/cookbooks/new" method="get">
-  <button type="submit">New Cookbook</button>
-</form>
-<ul>
-<% cookbooks.forEach(cookbook => { %>
-  <li><a href="/cookbooks/<%= cookbook._id %>"><%= cookbook.title %></a></li>
-  <% }) %>
-</ul>
+<table class="cookbooks-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Recipes</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% cookbooks.forEach(cookbook => { %>
+      <tr>
+        <td>
+          <a href="/cookbooks/<%= cookbook._id %>"><%= cookbook.title %></a>
+        </td>
+        <td>
+          <%= cookbook.recipes.length %>
+        </td>
+        <td>
+          <form action="/cookbooks/<%= cookbook._id %>?_method=DELETE" method="POST">
+            <button class="delete-cookbook-btn" type="submit">&#128465</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
 </main>
 
 <%- include('../partials/footer') %>

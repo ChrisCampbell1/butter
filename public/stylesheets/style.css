@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  background-color: black;
+  background-color: #fff9f3;
 }
 
 /* The Universal Selector */
@@ -66,6 +66,19 @@ nav a {
 
 nav a:hover {
   color: #ffd212;
+}
+
+nav button {
+  background-color: unset;
+  border: 0;
+  color: white;
+  font-size: 16px;
+}
+
+nav button:hover {
+  color: #ffd212;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 nav li {
@@ -208,7 +221,7 @@ form label {
   background-color: unset;
   border: 0;
   text-align: center;
-  margin-left: 30px;
+  margin-left: 10px;
 }
 
 .delete-cookbook-btn:hover {
@@ -226,15 +239,33 @@ cursor: pointer;
   flex-direction: column;
   overflow: hidden;
   width: 300px;
-  /* height: 600px; */
   border: 2px solid darkgray;
   margin: 20px;
   text-align: center;
 }
 
-.recipe-card img{
+.recipe-card img {
   object-fit: cover;
   height: 300px;
+}
+
+.recipe-card form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.recipe-card button {
+  background-color: unset;
+  border: 0;
+  font-size: 16px;
+}
+
+.recipe-card button:hover {
+  text-decoration: underline;
+}
+
+.cookbooks-table {
+  text-align: center;
 }
 
 @media only screen and (max-width: 768px) {

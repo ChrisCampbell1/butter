@@ -5,11 +5,12 @@
   <% if (user) { %>
     <h1>Hi, <%= user ? user.profile.name.split(" ")[0] : "friend" %>, let's cook!</h1>
     <h2>My Cookbooks</h2>
-    <table>
+    <table class="cookbooks-table">
       <thead>
         <tr>
           <th>Title</th>
-          <th>Delete Cookbook</th>
+          <th>Recipes</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -17,6 +18,9 @@
           <tr>
             <td>
               <a href="/cookbooks/<%= cookbook._id %>"><%= cookbook.title %></a>
+            </td>
+            <td>
+              <%= cookbook.recipes.length %>
             </td>
             <td>
               <form action="/cookbooks/<%= cookbook._id %>?_method=DELETE" method="POST">
