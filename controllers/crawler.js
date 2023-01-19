@@ -6,6 +6,7 @@ async function getRecipe(req, res) {
 		const { data } = await axios.get(
 			req.body.url
 		);
+    console.log(req.body.url, "url")
 		const $ = load(data);
 		const recipeData = [];
     let recipeString = ""
@@ -15,8 +16,9 @@ async function getRecipe(req, res) {
 			const recipe = $(el).text()
 			recipeData.push(recipe)
 		});
+    console.log(recipeData)//todo
     recipeData.forEach(function(recipe) {
-      if(recipe.includes(`"@context":"http://schema.org","@type":"Recipe"`)) {
+      if(recipe.includes(`"@context":"http://schema.org"`) && recipe.includes(`"@type":"Recipe"`)) {
         recipeString = recipeData[recipeData.indexOf(recipe)]
       }
     })
