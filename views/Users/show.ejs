@@ -4,13 +4,15 @@
 <main>
 <img src="<%= profile.avatar %>" alt="user avatar">
 <h1>Recipes by <%= profile.name %>:</h1>
-<ul>
+<div class="recipe-container">
   <% recipes.forEach(recipe => { %>
-    <li>
-      <a href="/recipes/<%= recipe._id %>"><%= recipe.label %></a>
-    </li>
+    <div class="recipe-card">
+      <a href="/recipes/<%= recipe._id %>"><img src="<%= recipe.image %>" alt="<%= recipe.label %> photo"></a>
+      <a href="/recipes/<%= recipe._id %>"><h3><%= recipe.label %></h3></a>
+      <p>Ingredient Count: <%= recipe.ingredients.length %></p>
+      <p>Number of Steps: <%= recipe.instructions.length %></p>
+    </div>
   <% }) %>
-</ul>
 </main>
 
 <%- include('../partials/footer') %>
