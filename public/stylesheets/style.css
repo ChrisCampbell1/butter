@@ -123,11 +123,17 @@ nav form {
   flex-direction: row;
   margin-left: auto;
   margin-right: 50px;
+  margin-bottom: 15px;
 }
 
 
 nav form button {
   width: auto;
+}
+
+nav form button:hover {
+  width: auto;
+  text-decoration: none;
 }
 
 main {
@@ -224,6 +230,7 @@ form label {
   border: 0;
   text-align: center;
   margin-left: 10px;
+  margin-top: 0px;
 }
 
 .delete-cookbook-btn:hover {
