@@ -22,6 +22,11 @@ async function getRecipe(req, res) {
     })
     console.log(JSON.parse(recipeString))
     recipeObj = JSON.parse(recipeString)
+    let instructionsArr = []
+    recipeObj.recipeInstructions.forEach(function(instruction) {
+      instructionsArr.push(instruction.text)
+    })
+    recipeObj.recipeInstructions = instructionsArr.join("\r\n")
     recipeObj.recipeIngredient = recipeObj.recipeIngredient.join("\r\n")
     res.render('recipes/import', {
       title: "Import Recipe",
@@ -29,7 +34,10 @@ async function getRecipe(req, res) {
     })
 	} 
   catch (error) {
-		throw error;
+    res.render('importerror', {
+      title: "Import Error"
+    })
+		//throw error;//needs redirect to import error page
 	}
 }
 
