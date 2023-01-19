@@ -256,6 +256,7 @@ background-color: unset;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .recipe-card {
@@ -271,6 +272,7 @@ background-color: unset;
 .recipe-card img {
   object-fit: cover;
   height: 300px;
+  width: 300px;
 }
 
 .recipe-card form {

@@ -3,8 +3,8 @@
 
 <main>
 <h1><%= title %></h1>
-<img src="<%= recipe.image %>" alt="<%= recipe.label %> image" width="50%">
-<h3>Author:</h3>
+<img src="<%= recipe.image %>" alt="<%= recipe.label %> image" width="30%">
+<h3>Owner:</h3>
 <h4><a href="/users/<%= recipe.author._id %>"><%= recipe.author.name %></a></h4>
 <div class="recipe-show-container">
   <div class="recipe-show-detail">
@@ -29,9 +29,6 @@
     </ol>
   </div>
 </div>
-  <form action="/recipes/<%= recipe._id %>/copy" method="GET">
-    <button type="submit">Copy Recipe</button>
-  </form>
 <% if (recipe.author.equals(user?.profile._id)) { %>
   <h2>Add this recipe to a cookbook:</h2>
   <% cookbooks.forEach(cookbook => { %>
@@ -44,6 +41,10 @@
   </form>
   <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
     <button type="submit">Delete Recipe</button>
+  </form>
+<% } else { %>
+  <form action="/recipes/<%= recipe._id %>/copy" method="GET">
+    <button type="submit">Copy Recipe</button>
   </form>
 <% } %>
 
