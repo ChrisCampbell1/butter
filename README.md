@@ -31,3 +31,4 @@ Planning materials and original wireframes can be found [here](https://trello.co
 - [ ] Implement web-scraping a user can import a recipe without manually entering data
 - [ ] Add recipe categories for easier searching as the recipe database grows
 - [ ] Only show original recipes in the user submitted recipes section
+- [ ] Let users save a bio in their profile
