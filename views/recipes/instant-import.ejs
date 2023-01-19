@@ -5,7 +5,7 @@
 <h1><%= title %></h1>
 <h2>Import a Recipe</h2>
 <form action="/recipes/import" method="POST">
-  <input type="url" name="url">
+  <input type="url" name="url" placeholder="copy full recipe URL here">
   <button type="submit">Import</button>
 </form>
 <h3>Supported Sources</h3>
@@ -15,6 +15,7 @@
   <li><a href="http://delish.com" target="_blank">Delish - no image support</a></li>
   <li><a href="http://goodhousekeeping.com" target="_blank">Good Housekeeping - no image support</a></li>
 </ul>
+<p>More importable sources coming soon!</p>
 </main>
 
 <%- include('../partials/footer') %>
