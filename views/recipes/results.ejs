@@ -11,6 +11,7 @@
       <a href="<%= hit.recipe.url %>" target="_blank"><h3><%= hit.recipe.label %></h3></a>
       <p>Source: <%= hit.recipe.source %></p>
       <p>Ingredient Count: <%= hit.recipe.ingredientLines.length %></p>
+      <a href="<%= hit.recipe.url %>" target="_blank" onclick="window.open('/recipes/new', '_self')">Copy This Recipe</a>
     </div>
   <% }) %>
 </div>
