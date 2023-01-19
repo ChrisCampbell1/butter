@@ -457,4 +457,15 @@ form button:hover {
     text-align: center;
   }
 
+  form button {
+    width: 60%;
+  }
+
+  .comment-form {
+    width: 90%;
+  }
+
+  .comment-form textarea{
+    width: 100%;
+  }
 }

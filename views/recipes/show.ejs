@@ -6,9 +6,9 @@
 <img src="<%= recipe.image %>" alt="<%= recipe.label %> image" width="50%">
 <h3>Author:</h3>
 <h4><a href="/users/<%= recipe.author._id %>"><%= recipe.author.name %></a></h4>
-<h4><a href="<%= recipe.url %>" target="_blank">Check out the original recipe that inspired this dish</a></h4>
 <div class="recipe-show-container">
   <div class="recipe-show-detail">
+    <h4><a href="<%= recipe.url %>" target="_blank">Check out the original recipe that inspired this dish</a></h4>
     <h3>Description</h3>
     <p><%= recipe.description %></p>
   </div>
