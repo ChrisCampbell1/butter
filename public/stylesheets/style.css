@@ -484,4 +484,12 @@ form button:hover {
   .recipe-card button {
     width: 100%;
   }
+
+  #results-header {
+    display: none;
+  }
+
+  .copy-recipe {
+    display: none;
+  }
 }
