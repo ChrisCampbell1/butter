@@ -77,8 +77,8 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-  req.body.ingredients = req.body.ingredients.split(",")
-  req.body.instructions = req.body.instructions.split(",")
+  req.body.ingredients = req.body.ingredients.split("\r\n")
+  req.body.instructions = req.body.instructions.split("\r\n")
   Recipe.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then(recipe => {
     res.redirect(`/recipes/${recipe._id}`)
